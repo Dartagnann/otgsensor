@@ -54,7 +54,8 @@ public class SecondFragment extends ListFragment {
                     R.layout.listviewitem,
                     //new String[]{"img","temp","humidity","date"},
                     //new int[]{R.id.img,R.id.title,R.id.info,R.id.opttime}
-                    new String[]{"date","img"},new int[]{R.id.opttime,R.id.img} );
+                    new String[]{"date","temp","humidity","pressure","illumination","longitude","latitude"},
+                    new int[]{R.id.opttime,R.id.temp,R.id.humi,R.id.pres,R.id.illu,R.id.longi,R.id.lati} );
             setListAdapter(adapter);
         }
     }
@@ -74,18 +75,38 @@ public class SecondFragment extends ListFragment {
         // 从数据库中取
         SQLiteDatabase db;
         db = getActivity().openOrCreateDatabase("CollectedData.db", Context.MODE_PRIVATE, null);
-        Cursor c = db.rawQuery("SELECT date FROM Data ORDER BY id DESC LIMIT 10 ",null);
+         Cursor c = db.rawQuery("SELECT * FROM Data ORDER BY id DESC LIMIT 10 ",null);
         while (c.moveToNext()) {
             //String temp = c.getString(c.getColumnIndex("temp"));
             //String humidity = c.getString(c.getColumnIndex("humidity"));
             String date = c.getString(c.getColumnIndex("date"));
+            String temp = c.getString(c.getColumnIndex("temp"));
+            String humidity = c.getString(c.getColumnIndex("humidity"));
+            String pressure = c.getString(c.getColumnIndex("pressure"));
+            String illumination = c.getString(c.getColumnIndex("illumination"));
+            String longitude = c.getString(c.getColumnIndex("longitude"));
+            String latitude = c.getString(c.getColumnIndex("latitude"));
+            //String date = c.getString(c.getColumnIndex("date"));
+
+
+
             //String spic = c.getString(c.getColumnIndex("PIC"));
 
             Map<String, Object> map = new HashMap<>();
-            map.put("img", R.drawable.b111);
+           // map.put("img", R.drawable.logo2);
            // map.put("temp", temp);
             //map.put("humidity", humidity);
             map.put("date", date);
+            map.put("temp", "温度: "+temp+"℃");
+            map.put("humidity", "湿度: "+humidity+"%");
+            map.put("pressure", "气压: "+pressure+"hPa");
+            map.put("illumination", "光照: "+illumination+"lux");
+            map.put("longitude", "经度: "+longitude);
+            map.put("latitude", "纬度: "+latitude);
+            //map.put("temp", temp);
+            //map.put("temp", temp);
+
+
 
             list.add(map);
         }

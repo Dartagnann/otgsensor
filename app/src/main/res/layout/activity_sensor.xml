@@ -19,15 +19,15 @@
 
     <TextView
         android:id="@+id/textView_longi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="79dp"
+        android:layout_height="19dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintVertical_bias="0.69" />
 
     <TextView
         android:id="@+id/textView_location"
@@ -39,7 +39,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.843" />
+        app:layout_constraintVertical_bias="0.883" />
 
     <Button
         android:id="@+id/bt_temp"
@@ -363,7 +363,7 @@
         android:id="@+id/textView_humi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="湿度:"
+        android:text="环境湿度："
         android:textColor="@android:color/black"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -438,7 +438,7 @@
         android:layout_height="match_parent"
 
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -492,15 +492,15 @@
 
     <TextView
         android:id="@+id/textView_lati"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="91dp"
+        android:layout_height="16dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.72" />
 
     <TextView
         android:id="@+id/textView8"
@@ -512,7 +512,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintVertical_bias="0.69" />
 
     <TextView
         android:id="@+id/textView9"
@@ -524,5 +524,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.72" />
 </android.support.constraint.ConstraintLayout>

@@ -14,14 +14,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_DATA = "create table Data("+"id integer primary key autoincrement, "
     +"date INTEGER,"
-    +"temp real,"
-    +"humidity real,"
-    +"pressure real,"
-    +"illumination real,"
-    +"longitude real,"
-    +"latitude real)";
+    +"temp FLOAT,"
+    +"humidity FLOAT,"
+    +"pressure FLOAT,"
+    +"illumination FLOAT,"
+    +"longitude FLOAT,"
+    +"latitude FLOAT)";
 
     private Context mContext;
+
 
     public MyDatabaseHelper(Context context, String name,
                             SQLiteDatabase.CursorFactory factory, int version){
