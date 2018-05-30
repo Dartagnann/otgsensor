@@ -18,6 +18,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     +"humidity FLOAT,"
     +"pressure FLOAT,"
     +"illumination FLOAT,"
+    +"soil_t FLOAT,"+"soil_h FLOAT,"+"uv FLOAT,"
     +"longitude FLOAT,"
     +"latitude FLOAT)";
 

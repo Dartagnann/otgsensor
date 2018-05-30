@@ -55,8 +55,8 @@ public class SensorActivity extends AppCompatActivity {
     private MyDatabaseHelper dbHelper;
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    Button button_begin,button_stop,button_upload,button_save,button_reset,bt_temp,bt_humi,bt_pres,bt_illu,bt_soil,bt_ph;
-    TextView textView1,textView2,textView3,textView4,textView5,textView6;
+    Button button_begin,button_stop,button_upload,button_save,button_reset,bt_temp,bt_humi,bt_pres,bt_illu,bt_soil_t,bt_soil,bt_zwx;
+    TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7;
     UsbManager usbManager;
     UsbDevice device;
     UsbSerialDevice serialPort;
@@ -132,8 +132,9 @@ public class SensorActivity extends AppCompatActivity {
         bt_humi= (Button) findViewById(R.id.bt_humi);
         bt_pres = (Button) findViewById(R.id.bt_pres);
         bt_illu = (Button) findViewById(R.id.bt_illu);
+        bt_soil_t=findViewById(R.id.bt_soil_t);
         bt_soil = (Button) findViewById(R.id.bt_soil);
-        bt_ph = (Button) findViewById(R.id.bt_ph);
+        bt_zwx = (Button) findViewById(R.id.bt_zwx);
         button_stop = (Button) findViewById(R.id.button_stop);
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
@@ -141,6 +142,7 @@ public class SensorActivity extends AppCompatActivity {
         textView4 = (TextView) findViewById(R.id.textView4);
         textView5 = (TextView) findViewById(R.id.textView5);
         textView6 = (TextView) findViewById(R.id.textView6);
+        textView7 = (TextView) findViewById(R.id.textView7);
         setUiEnabled(false);
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_USB_PERMISSION);
@@ -191,12 +193,18 @@ public class SensorActivity extends AppCompatActivity {
                 String humidity1 = textView2.getText().toString();
                 String pressure1 = textView3.getText().toString();
                 String illumination1 = textView4.getText().toString();
+                String soilt1 = textView5.getText().toString();
+                String soilh1 = textView6.getText().toString();
+                String uv1 = textView7.getText().toString();
                 String longitude1 = longitudeText.getText().toString();
                 String latitude1 = latitudeText.getText().toString();
                 float temp = Float.parseFloat(temp1);
                 float humidity = Float.parseFloat(humidity1);
                 float pressure = Float.parseFloat(pressure1);
                 float illumination = Float.parseFloat(illumination1);
+                float soil_t = Float.parseFloat(soilt1);
+                float soil_h = Float.parseFloat(soilh1);
+                float uv = Float.parseFloat(uv1);
                 float longitude = Float.parseFloat(longitude1);
                 float latitude = Float.parseFloat(latitude1);
                 java.util.Date date = new java.util.Date();
@@ -215,6 +223,11 @@ public class SensorActivity extends AppCompatActivity {
                 values.put("date", sTime);
                 values.put("humidity", humidity);
                 values.put("pressure", pressure);
+                values.put("illumination", illumination);
+                values.put("soil_t", soil_t);
+                values.put("soil_h", soil_h);
+                values.put("uv", uv);
+                values.put("illumination", illumination);
                 values.put("illumination", illumination);
                 values.put("longitude", longitude);
                 values.put("latitude", latitude);
@@ -349,6 +362,8 @@ public class SensorActivity extends AppCompatActivity {
         bt_humi.setEnabled(bool);
         bt_pres.setEnabled(bool);
         bt_illu.setEnabled(bool);
+        bt_soil.setEnabled(bool);
+        bt_zwx.setEnabled(bool);
         textView1.setEnabled(bool);
         textView2.setEnabled(bool);
         textView3.setEnabled(bool);
@@ -393,7 +408,7 @@ public class SensorActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -416,7 +431,7 @@ public class SensorActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -442,7 +457,7 @@ public class SensorActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -464,7 +479,7 @@ public class SensorActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -477,7 +492,7 @@ public class SensorActivity extends AppCompatActivity {
 
     }
     public void onClickSend5(View view) {
-        textView4.setText("");
+        textView5.setText("");
         String string = "5";
         serialPort.write(string.getBytes());
         new Thread() {
@@ -485,20 +500,20 @@ public class SensorActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 String data5 = data;
                 int a = data5.length();
                 Log.i("data1", data5);
-                tvAppend(textView4, data5);
+                tvAppend(textView5, data5);
             }
         }.start();
 
     }
     public void onClickSend6(View view) {
-        textView4.setText("");
+        textView6.setText("");
         String string = "6";
         serialPort.write(string.getBytes());
         new Thread() {
@@ -506,7 +521,7 @@ public class SensorActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -514,6 +529,27 @@ public class SensorActivity extends AppCompatActivity {
                 int a = data6.length();
                 Log.i("data1", data6);
                 tvAppend(textView6, data6 );
+            }
+        }.start();
+
+    }
+    public void onClickSend7(View view) {
+        textView7.setText("");
+        String string = "7";
+        serialPort.write(string.getBytes());
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                String data7 = data;
+                int a = data7.length();
+                Log.i("data1", data7);
+                tvAppend(textView7, data7 );
             }
         }.start();
 
@@ -544,6 +580,7 @@ public class SensorActivity extends AppCompatActivity {
         textView4.setText("0.00");
         textView5.setText("0.00");
         textView6.setText("0.00");
+        textView7.setText("0.00");
     }
     /*public void onClickSave(View view){
 

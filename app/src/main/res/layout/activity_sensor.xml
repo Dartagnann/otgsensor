@@ -46,8 +46,8 @@
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
-        android:background="#008348"
-        android:backgroundTint="#008348"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
         android:onClick="onClickSend1"
         android:text="获取"
         android:textColor="@android:color/white"
@@ -57,15 +57,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <Button
         android:id="@+id/bt_humi"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
-        android:background="#008348"
-        android:backgroundTint="#008348"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
         android:onClick="onClickSend2"
         android:text="获取"
         android:textColor="@android:color/white"
@@ -75,15 +75,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.29000002" />
 
     <Button
         android:id="@+id/bt_pres"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
-        android:background="#008348"
-        android:backgroundTint="#008348"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
         android:onClick="onClickSend3"
         android:text="获取"
         android:textColor="@android:color/white"
@@ -93,15 +93,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41000003" />
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <Button
         android:id="@+id/bt_illu"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
-        android:background="#008348"
-        android:backgroundTint="#008348"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
         android:onClick="onClickSend4"
         android:text="获取"
         android:textColor="@android:color/white"
@@ -110,15 +110,15 @@
         app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003" />
     <Button
-        android:id="@+id/bt_soil"
+        android:id="@+id/bt_soil_t"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
-        android:background="#008348"
-        android:backgroundTint="#008348"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
         android:onClick="onClickSend5"
         android:text="获取"
         android:textColor="@android:color/white"
@@ -128,15 +128,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.48000002" />
 
     <Button
-        android:id="@+id/bt_ph"
+        android:id="@+id/bt_soil"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
-        android:background="#008348"
-        android:backgroundTint="#008348"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
         android:onClick="onClickSend6"
         android:text="获取"
         android:textColor="@android:color/white"
@@ -146,64 +146,26 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.55" />
 
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0.00"
-        android:textColor="@android:color/black"
-        android:textSize="26sp"
+    <Button
+        android:id="@+id/bt_zwx"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+        android:layout_width="46dp"
+        android:layout_height="26dp"
+        android:background="@color/mainColor"
+        android:backgroundTint="@color/mainColor"
+        android:onClick="onClickSend7"
+        android:text="获取"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.61" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0.00"
-        android:textColor="@android:color/black"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0.00"
-        android:textColor="@android:color/black"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0.00"
-        android:textColor="@android:color/black"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
 
     <TextView
         android:id="@+id/textView3"
@@ -211,13 +173,83 @@
         android:layout_height="wrap_content"
         android:text="0.00"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41000003" />
+        app:layout_constraintVertical_bias="0.35000002" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23000002" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29000002" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48000002" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
 
     <TextView
         android:id="@+id/textView4"
@@ -225,12 +257,13 @@
         android:layout_height="wrap_content"
         android:text="0.00"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003" />
 
     <TextView
         android:id="@+id/textView_1"
@@ -238,13 +271,13 @@
         android:layout_height="wrap_content"
         android:text="℃"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <TextView
         android:id="@+id/textView_2"
@@ -252,13 +285,13 @@
         android:layout_height="wrap_content"
         android:text="%"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+        app:layout_constraintVertical_bias="0.29000002" />
 
     <TextView
         android:id="@+id/textView_3"
@@ -266,13 +299,13 @@
         android:layout_height="wrap_content"
         android:text="hPa"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41000003" />
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <TextView
         android:id="@+id/textView_4"
@@ -280,41 +313,86 @@
         android:layout_height="wrap_content"
         android:text="lux"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003" />
 
     <TextView
         android:id="@+id/textView_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="%"
+        android:text="℃"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.48000002" />
 
     <TextView
-        android:id="@+id/textView_ph"
+        android:id="@+id/textView_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PH值:"
+        android:text="%"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/textView_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mW/cm2"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
+
+
+    <TextView
+        android:id="@+id/textView_zwx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="紫外线等级:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.61" />
+
+    <TextView
+        android:id="@+id/textView_soil_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="土壤温度:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48000002" />
 
     <TextView
         android:id="@+id/textView_soil"
@@ -322,14 +400,14 @@
         android:layout_height="wrap_content"
         android:text="土壤湿度:"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.55" />
 
     <TextView
         android:id="@+id/textView_illu"
@@ -337,13 +415,14 @@
         android:layout_height="wrap_content"
         android:text="光照:"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003" />
 
     <TextView
         android:id="@+id/textView_pres"
@@ -351,13 +430,13 @@
         android:layout_height="wrap_content"
         android:text="气压:"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41000003" />
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <TextView
         android:id="@+id/textView_humi"
@@ -365,13 +444,13 @@
         android:layout_height="wrap_content"
         android:text="环境湿度："
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.29000002" />
 
     <TextView
         android:id="@+id/textView_temp"
@@ -379,13 +458,13 @@
         android:layout_height="wrap_content"
         android:text="温度:"
         android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <Button
         android:id="@+id/button_upload"

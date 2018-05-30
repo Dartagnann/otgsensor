@@ -5,8 +5,8 @@
         <!-- Customize your theme here. -->
 
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorPrimary">#008348</item> <!--凯尔特人绿-->
-        <item name="colorPrimaryDark">#008348</item> <!--凯尔特人绿-->
+        <item name="colorPrimary">#333843</item> <!--凯尔特人绿-->
+        <item name="colorPrimaryDark">#333843</item> <!--凯尔特人绿-->
     </style>
 
 </resources>

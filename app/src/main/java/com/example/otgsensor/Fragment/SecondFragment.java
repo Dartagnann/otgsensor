@@ -54,8 +54,8 @@ public class SecondFragment extends ListFragment {
                     R.layout.listviewitem,
                     //new String[]{"img","temp","humidity","date"},
                     //new int[]{R.id.img,R.id.title,R.id.info,R.id.opttime}
-                    new String[]{"date","temp","humidity","pressure","illumination","longitude","latitude"},
-                    new int[]{R.id.opttime,R.id.temp,R.id.humi,R.id.pres,R.id.illu,R.id.longi,R.id.lati} );
+                    new String[]{"date","temp","humidity","pressure","illumination","soil_t","soil_h","uv","longitude","latitude"},
+                    new int[]{R.id.opttime,R.id.temp,R.id.humi,R.id.pres,R.id.illu,R.id.soil_t,R.id.soil_h,R.id.uv,R.id.longi,R.id.lati} );
             setListAdapter(adapter);
         }
     }
@@ -84,6 +84,9 @@ public class SecondFragment extends ListFragment {
             String humidity = c.getString(c.getColumnIndex("humidity"));
             String pressure = c.getString(c.getColumnIndex("pressure"));
             String illumination = c.getString(c.getColumnIndex("illumination"));
+            String soil_t = c.getString(c.getColumnIndex("soil_t"));
+            String soil_h = c.getString(c.getColumnIndex("soil_h"));
+            String uv = c.getString(c.getColumnIndex("uv"));
             String longitude = c.getString(c.getColumnIndex("longitude"));
             String latitude = c.getString(c.getColumnIndex("latitude"));
             //String date = c.getString(c.getColumnIndex("date"));
@@ -101,6 +104,9 @@ public class SecondFragment extends ListFragment {
             map.put("humidity", "湿度: "+humidity+"%");
             map.put("pressure", "气压: "+pressure+"hPa");
             map.put("illumination", "光照: "+illumination+"lux");
+            map.put("soil_t", "土壤温度: "+soil_t+"℃");
+            map.put("soil_h", "土壤湿度: "+soil_h+"%");
+            map.put("uv", "紫外线等级: "+uv+"mW/cm2");
             map.put("longitude", "经度: "+longitude);
             map.put("latitude", "纬度: "+latitude);
             //map.put("temp", temp);

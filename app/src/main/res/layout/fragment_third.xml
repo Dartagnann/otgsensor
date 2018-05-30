@@ -1,13 +1,136 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.otgsensor.Fragment.ThirdFragment">
+    android:layout_gravity="start|start"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:background="@color/mainColor"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:src="@drawable/face" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:text="用户名"
+                android:textColor="@color/textColor"
+                android:textSize="25sp" />
+
+
+
+            <!--<Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:background="@mipmap/addpic"/>-->
+
+            <TextView
+                android:id="@+id/add_people_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+                android:text="云端数据"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"/>
+
+
+            <!--<Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:background="@mipmap/pencil"/>-->
+
+            <TextView
+                android:id="@+id/settlemoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+                android:text="帐号安全"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"/>
+
+
+            <!--Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:background="@mipmap/cloud"/>-->
+
+            <TextView
+                android:id="@+id/view_all_bills"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="6dp"
+                android:paddingTop="10dp"
+                android:text="关于"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="3" />
+        android:background="#ffff"
+        >
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="40dp"
+                android:background="@mipmap/exit" />
+
+            <TextView
+                android:id="@+id/returnLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-light"
+                android:text="注销"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
