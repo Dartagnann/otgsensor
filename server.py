@@ -87,8 +87,27 @@ def register():
 # 客户端将数据传上服务器，更新服务器上的数据
 @app.route('/postdata', methods=['POST'])
 def postData():
-    db.create_all()
     userName = request.form['username']
+    class udataTable(db.Model):
+      if userName is not '':
+        __tablename__ = userName
+        __table_args__ = {"useexisting": True}
+        id = db.Column(db.Integer, primary_key=True)
+        date = db.Column(db.String(100))
+        temp = db.Column(db.String(100))
+        humidity = db.Column(db.String(100))
+        pressure = db.Column(db.String(100))
+        illumination = db.Column(db.String(100))
+        soil_t = db.Column(db.String(100))
+        soil_h = db.Column(db.String(100))
+        uv = db.Column(db.String(100))
+        longitude = db.Column(db.String(100))
+        latitude = db.Column(db.String(100))
+      else:
+        print('tableName is NUll')
+
+    db.create_all()
+
     cDate = request.form['date']
     cTemp = request.form['temp']
     cHumidity = request.form['humidity']
@@ -100,7 +119,7 @@ def postData():
     cLongitude = request.form['longitude']
     cLatitude = request.form['latitude']
     print('收到了'+userName)
-    haveExisted = dataTable.query.filter_by(temp=request.form['temp'],
+    haveExisted = udataTable.query.filter_by(temp=request.form['temp'],
                                             humidity=request.form['humidity'],
                                             pressure=request.form['pressure'],
                                             illumination=request.form['illumination'],
@@ -112,7 +131,7 @@ def postData():
         return '0' #数据已存在
 
     try:
-        cData = dataTable( date=cDate,
+        cData = udataTable( date=cDate,
                           temp=cTemp,
                           humidity=cHumidity,
                           pressure=cPressure,
