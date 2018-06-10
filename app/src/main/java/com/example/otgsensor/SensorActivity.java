@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.hardware.usb.UsbDevice;
@@ -21,6 +22,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.IOException;
 import java.text.DateFormat;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -45,9 +48,22 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import static tool.ServerIP.POSTURL;
+import static tool.SharedPreferenceHelper.getTableNameBySP;
 
 public class SensorActivity extends AppCompatActivity {
     public LocationClient mLocationClient;
+    public String USERNAME;
     private TextView positionText, latitudeText, longitudeText;//position
     private MapView mapView;
     private BaiduMap baiduMap;
@@ -62,6 +78,7 @@ public class SensorActivity extends AppCompatActivity {
     UsbSerialDevice serialPort;
     UsbDeviceConnection connection;
     String data="";
+    String cdate="";
 
     UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
         @Override
@@ -124,7 +141,7 @@ public class SensorActivity extends AppCompatActivity {
         mapView = findViewById(R.id.bmapView);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
-
+        USERNAME = getTableNameBySP(this);//以用户名作为表名
 
         usbManager = (UsbManager) getSystemService(this.USB_SERVICE);
         button_begin = (Button) findViewById(R.id.button_begin);
@@ -244,6 +261,33 @@ public class SensorActivity extends AppCompatActivity {
                 Toast.makeText(SensorActivity.this, "保存成功！", Toast.LENGTH_LONG).show();
             }
         });
+        //下面是上传数据代码
+        Button upData = findViewById(R.id.button_upload);
+        upData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String temp1 = textView1.getText().toString();
+                String humidity1 = textView2.getText().toString();
+                String pressure1 = textView3.getText().toString();
+                String illumination1 = textView4.getText().toString();
+                String soilt1 = textView5.getText().toString();
+                String soilh1 = textView6.getText().toString();
+                String uv1 = textView7.getText().toString();
+                String longitude1 = longitudeText.getText().toString();
+                String latitude1 = latitudeText.getText().toString();
+                String posturl = POSTURL;
+                /*float temp = Float.parseFloat(temp1);
+                float humidity = Float.parseFloat(humidity1);
+                float pressure = Float.parseFloat(pressure1);
+                float illumination = Float.parseFloat(illumination1);
+                float soil_t = Float.parseFloat(soilt1);
+                float soil_h = Float.parseFloat(soilh1);
+                float uv = Float.parseFloat(uv1);
+                float longitude = Float.parseFloat(longitude1);
+                float latitude = Float.parseFloat(latitude1);*/
+                upLoad(posturl,temp1,humidity1,pressure1,illumination1,soilt1,soilh1,uv1,longitude1,latitude1);
+            }
+        });
     }
     private void navigateTo(final BDLocation location){
         if (isFirstLocate){
@@ -265,9 +309,6 @@ public class SensorActivity extends AppCompatActivity {
         locationBuilder.longitude(location.getLongitude());
         MyLocationData locationData = locationBuilder.build();
         baiduMap.setMyLocationData(locationData);
-
-
-
     }
     @Override
     protected  void onResume(){
@@ -293,6 +334,68 @@ public class SensorActivity extends AppCompatActivity {
         option.setCoorType("bd09ll");
         mLocationClient.setLocOption(option);
     }
+
+
+    private void upLoad(String posturl,final String temp1, String humidity1, String pressure1, String illumination1, String soilt1, String soilh1, String uv1, String longitude1, String latitude1){
+
+                    OkHttpClient client = new OkHttpClient();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd. HH:mm:ss");// HH:mm:ss
+                    //获取当前时间
+                    Date date = new Date(System.currentTimeMillis());
+                    String cdate = simpleDateFormat.format(date);
+                    FormBody.Builder formBuilder = new FormBody.Builder();
+                    formBuilder.add("username", USERNAME);//USERNAME就是username
+                    formBuilder.add("date", cdate);
+                    formBuilder.add("temp", temp1);
+                    formBuilder.add("humidity", humidity1);
+                    formBuilder.add("pressure", pressure1);
+                    formBuilder.add("illumination", illumination1);
+                    formBuilder.add("soil_t", soilt1);
+                    formBuilder.add("soil_h", soilh1);
+                    formBuilder.add("uv", uv1);
+                    formBuilder.add("longitude", longitude1);
+                    formBuilder.add("latitude", latitude1);
+                    Request request = new Request.Builder().url(posturl).post(formBuilder.build()).build();
+                    Call call = client.newCall(request);
+                    call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        runOnUiThread(new Runnable()
+                        {
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(SensorActivity.this, "服务器错误", Toast.LENGTH_SHORT).show();
+                    }
+                        });
+                    }
+                    @Override
+                        public void onResponse(Call call, Response response) throws IOException
+                        {
+                            final String res = response.body().string();
+                            runOnUiThread(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    if (res.equals("0"))
+                                    {
+                                        Toast.makeText(SensorActivity.this, "请勿重复上传", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else if (res.equals("1"))
+                                    {
+                                        Toast.makeText(SensorActivity.this, "上传失败", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else {
+                                        Toast.makeText(SensorActivity.this, "上传成功", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+
+                    });
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {

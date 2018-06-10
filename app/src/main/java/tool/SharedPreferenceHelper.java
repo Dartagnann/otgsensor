@@ -15,6 +15,12 @@ public class SharedPreferenceHelper {
         SharedPreferences sp = context.getSharedPreferences("userLogStatus", MODE_PRIVATE);
         return sp.getBoolean("LogStatus", false);
     }
+    public static String getTableNameBySP(Context context)
+    {
+        SharedPreferences preference = context.getSharedPreferences("UserIDAndPassword", MODE_PRIVATE);
+        String username = preference.getString("username", "");
+        return username;
+    }
     public static void  setLoggingStatus(Context context,boolean status)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences("userLogStatus", MODE_PRIVATE);

@@ -28,6 +28,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 //import static tool.ServerIP.LOGURL;
 //import static tool.ServerIP.SIGNURL;
+import static tool.ServerIP.LOGURL;
+import static tool.ServerIP.SIGNURL;
 import static tool.SharedPreferenceHelper.setLoggingStatus;
 
 /**
@@ -81,11 +83,11 @@ public class LogActivity extends Activity implements View.OnClickListener
         switch (v.getId())
         {
             case R.id.log_Button:
-                String url = "http://39.108.92.81:80/user";/*在此处改变你的服务器地址*/
+                String url =LOGURL;/*在此处改变你的服务器地址*/
                 getCheckFromServer(url,userName,passWord);
                 break;
             case R.id.Sign_Button:
-                String url2 = "http://39.108.92.81:80/register";/*在此处改变你的服务器地址*/
+                String url2 = SIGNURL;/*在此处改变你的服务器地址*/
                 registeNameWordToServer(url2,userName,passWord);
                 break;
         }
