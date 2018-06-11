@@ -36,8 +36,10 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.example.otgsensor.Fragment.MapActivity;
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
 
@@ -201,6 +203,18 @@ public class SensorActivity extends AppCompatActivity {
                 dbHelper.getWritableDatabase();
             }
         });*/
+        //下面是mapview点击响应代码
+        baiduMap.setOnMapClickListener(new BaiduMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Intent intent = new Intent(SensorActivity.this, MapActivity.class);
+                startActivity(intent);
+            }
+            @Override
+            public boolean onMapPoiClick(MapPoi mapPoi) {
+                return false;
+            }
+        });
         //下面是添加数据库记录代码
         Button addData = findViewById(R.id.button_save);
         addData.setOnClickListener(new View.OnClickListener() {
@@ -289,26 +303,26 @@ public class SensorActivity extends AppCompatActivity {
             }
         });
     }
-    private void navigateTo(final BDLocation location){
-        if (isFirstLocate){
-            LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
-            MapStatus mapStatus = new MapStatus.Builder()
-                    .target(ll)
-                    .zoom(17)
-                    .build();
-            MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mapStatus);
-            baiduMap.setMapStatus(mapStatusUpdate);
-            //MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
-            //baiduMap.animateMapStatus(update);
-            //update = MapStatusUpdateFactory.zoomTo(16f);
-            //baiduMap.animateMapStatus(update);
-            isFirstLocate = false;
-        }
-        MyLocationData.Builder locationBuilder = new MyLocationData.Builder();
-        locationBuilder.latitude(location.getLatitude());
-        locationBuilder.longitude(location.getLongitude());
-        MyLocationData locationData = locationBuilder.build();
-        baiduMap.setMyLocationData(locationData);
+                                private void navigateTo(final BDLocation location){
+                                    if (isFirstLocate){
+                                        LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
+                                        MapStatus mapStatus = new MapStatus.Builder()
+                                                .target(ll)
+                                                .zoom(17)
+                                                .build();
+                                        MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mapStatus);
+                                        baiduMap.setMapStatus(mapStatusUpdate);
+                                        //MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
+                                        //baiduMap.animateMapStatus(update);
+                                        //update = MapStatusUpdateFactory.zoomTo(16f);
+                                        //baiduMap.animateMapStatus(update);
+                                        isFirstLocate = false;
+                                    }
+                                    MyLocationData.Builder locationBuilder = new MyLocationData.Builder();
+                                    locationBuilder.latitude(location.getLatitude());
+                                    locationBuilder.longitude(location.getLongitude());
+                                    MyLocationData locationData = locationBuilder.build();
+                                    baiduMap.setMyLocationData(locationData);
     }
     @Override
     protected  void onResume(){
