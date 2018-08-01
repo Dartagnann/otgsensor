@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">农业移动感知平台</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">采集</string>
+    <string name="title_dashboard">记录</string>
+    <string name="title_notifications">我</string>
     <string name="连接">Begin</string>
 
     <!-- TODO: Remove or change this placeholder text -->
