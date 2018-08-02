@@ -14,11 +14,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_DATA = "create table Data("+"id integer primary key autoincrement, "
     +"date INTEGER,"
-    +"temp FLOAT,"
-    +"humidity FLOAT,"
-    +"pressure FLOAT,"
+    +"tem FLOAT,"
+    +"humi FLOAT,"
     +"illumination FLOAT,"
-    +"soil_t FLOAT,"+"soil_h FLOAT,"+"uv FLOAT,"
+    +"soil_t FLOAT," +"soil_h FLOAT,"
+    +"co2 FLOAT,"
+    +"ph FLOAT,"
     +"longitude FLOAT,"
     +"latitude FLOAT)";
 

@@ -51,7 +51,7 @@
         >
 
         <TextView
-            android:id="@+id/pres"
+            android:id="@+id/co2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -93,7 +93,7 @@
 
 
         <TextView
-            android:id="@+id/uv"
+            android:id="@+id/ph"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp" />

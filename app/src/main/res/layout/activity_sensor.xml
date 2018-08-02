@@ -2,8 +2,27 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sensor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加图片"
+        android:textAllCaps="false"
+        android:textColor="@color/red_btn_bg_pressed_color"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683" />
+
+
 
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapView"
@@ -78,7 +97,7 @@
         app:layout_constraintVertical_bias="0.29000002" />
 
     <Button
-        android:id="@+id/bt_pres"
+        android:id="@+id/bt_co2"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
@@ -112,6 +131,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.41000003" />
+
     <Button
         android:id="@+id/bt_soil_t"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
@@ -131,7 +151,7 @@
         app:layout_constraintVertical_bias="0.48000002" />
 
     <Button
-        android:id="@+id/bt_soil"
+        android:id="@+id/bt_soil_h"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
@@ -149,7 +169,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/bt_zwx"
+        android:id="@+id/bt_ph"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="46dp"
         android:layout_height="26dp"
@@ -188,12 +208,8 @@
         android:text="0.00"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23000002" />
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="124dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -353,7 +369,6 @@
         android:id="@+id/textView_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="mW/cm2"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -365,10 +380,10 @@
 
 
     <TextView
-        android:id="@+id/textView_zwx"
+        android:id="@+id/textView_ph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="紫外线等级:"
+        android:text="pH值:"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -395,7 +410,7 @@
         app:layout_constraintVertical_bias="0.48000002" />
 
     <TextView
-        android:id="@+id/textView_soil"
+        android:id="@+id/textView_soil_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="土壤湿度:"
@@ -413,7 +428,7 @@
         android:id="@+id/textView_illu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="光照:"
+        android:text="光照强度:"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -428,7 +443,7 @@
         android:id="@+id/textView_pres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="气压:"
+        android:text="二氧化碳浓度:"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -442,7 +457,7 @@
         android:id="@+id/textView_humi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="环境湿度："
+        android:text="空气湿度："
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -456,7 +471,7 @@
         android:id="@+id/textView_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="温度:"
+        android:text="空气温度:"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -465,6 +480,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23000002" />
+
 
     <Button
         android:id="@+id/button_upload"
@@ -513,9 +529,10 @@
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bt_ph"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
 
+        android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
