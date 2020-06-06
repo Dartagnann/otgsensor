@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.otgsensor.Fragment.ThirdFragment;
+
 import java.io.IOException;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -117,7 +119,7 @@ public class LogActivity extends Activity implements View.OnClickListener
                     @Override
                     public void run()
                     {
-                        showWarnSweetDialog("服务器错误");
+                        showWarnSweetDialog("网络错误");
                     }
                 });
 
@@ -180,7 +182,7 @@ public class LogActivity extends Activity implements View.OnClickListener
                     @Override
                     public void run()
                     {
-                        showWarnSweetDialog("服务器错误");
+                        showWarnSweetDialog("网络错误");
                     }
                 });
             }
@@ -255,6 +257,10 @@ public class LogActivity extends Activity implements View.OnClickListener
             {
                 Intent intent = new Intent(LogActivity.this, MainActivity.class);
                 intent.putExtra("connectServer", true);
+                //传入当前用户名至MainActivity
+                String name = userNameEdit.getText().toString();
+                //Intent intent1 = new Intent(LogActivity.this, MainActivity.class);
+                intent.putExtra("name",name);
                 startActivity(intent);
                 new Thread(new Runnable()//在后台线程中关闭此活动
                 {

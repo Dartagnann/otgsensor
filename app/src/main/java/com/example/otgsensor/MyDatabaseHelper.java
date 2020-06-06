@@ -10,18 +10,19 @@ import android.widget.Toast;
  * Created by 123 on 2018/3/19.
  */
 
-public class MyDatabaseHelper extends SQLiteOpenHelper {
+public class  MyDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_DATA = "create table Data("+"id integer primary key autoincrement, "
     +"date INTEGER,"
     +"tem FLOAT,"
-    +"humi FLOAT,"
+    +"humidity FLOAT,"
+            +"pressure FLOAT,"
     +"illumination FLOAT,"
     +"soil_t FLOAT," +"soil_h FLOAT,"
-    +"co2 FLOAT,"
-    +"ph FLOAT,"
+    +"uv FLOAT,"
     +"longitude FLOAT,"
-    +"latitude FLOAT)";
+    +"latitude FLOAT,"
+    +"img BLOB)";
 
     private Context mContext;
 

@@ -8,5 +8,9 @@
         <item name="colorPrimary">#333843</item> <!--凯尔特人绿-->
         <item name="colorPrimaryDark">#333843</item> <!--凯尔特人绿-->
     </style>
+    <style name="AnimBottom" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
 
 </resources>

@@ -81,7 +81,7 @@ public class MapActivity extends AppCompatActivity {
                     .zoom(17.5f)
                     .build();
             MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mapStatus);
-            fbaiduMap.setMapStatus(mapStatusUpdate);
+            fbaiduMap.animateMapStatus(mapStatusUpdate);
             //MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
             //baiduMap.animateMapStatus(update);
             //update = MapStatusUpdateFactory.zoomTo(16f);
@@ -103,6 +103,13 @@ public class MapActivity extends AppCompatActivity {
     protected  void onPause(){
         super.onPause();
         fmapView.onPause();
+    }
+    @Override
+    protected  void onDestroy(){
+        super.onDestroy();
+        mLocationClient.stop();
+        fmapView.onDestroy();
+        fbaiduMap.setMyLocationEnabled(false);
     }
     private  void requestLocation(){
         initLocation();
@@ -128,4 +135,5 @@ public class MapActivity extends AppCompatActivity {
 
         return super.onKeyDown(keyCode, event);
     }
+
 }

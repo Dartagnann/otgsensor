@@ -21,7 +21,7 @@ import static tool.SharedPreferenceHelper.setLoggingStatus;
 
 
 public class ThirdFragment extends Fragment {
-    private TextView textView;
+    private TextView textView, text_user;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +29,11 @@ public class ThirdFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_third, container, false);
         textView = view.findViewById(R.id.returnLog);
+        text_user = view.findViewById(R.id.user_name);
+
+        //Intent intent = new Intent(getActivity(), MainActivity.class);
+        String name = getActivity().getIntent().getStringExtra("name");
+        text_user.setText(name);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

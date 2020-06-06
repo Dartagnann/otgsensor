@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
-        android:text="AES-Hub"
+        android:text="移动感知平台"
         android:textColor="#E5DCC5"
         android:textSize="50dp"
         android:transitionName="titleShare" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="250dp"
-        android:text="V 1.0"
+        android:text="V1.4 by安徽农业大学数字农业研究所"
         android:textAlignment="center"
         android:textColor="#E5DCC5"
         android:textSize="15dp" />

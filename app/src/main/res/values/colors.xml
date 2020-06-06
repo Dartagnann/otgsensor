@@ -10,4 +10,5 @@
     <color name="textColor">#DEE1DA</color>
     <color name="caidanColor">#3F51B5</color>
     <color name="textColor2">#EBEDEF</color>
+    <color name="red">#DC143C</color>
 </resources>
